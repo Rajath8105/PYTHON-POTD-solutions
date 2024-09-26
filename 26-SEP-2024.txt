@@ -1,0 +1,25 @@
+class Solution:
+    
+    #Function to find maximum number of consecutive steps 
+    #to gain an increase in altitude with each step.
+    def maxStep(self, arr):
+        #Your code here
+        lx=[]
+        n=len(arr)
+        
+        for i in range(n):
+            l=[]
+            b=0
+            for x in range(i,n):
+                if b<arr[x]:
+                    l.append(arr[x])
+                else:
+                    break
+                b=arr[x]
+            lx.append(l)
+        ans=1
+        
+        for lt in lx:
+            ans=max(ans,len(lt))
+            
+        return ans-1
