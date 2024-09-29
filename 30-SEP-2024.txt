@@ -1,0 +1,42 @@
+class Solution:
+    def func(self, node, path=[]):
+        if not node:
+            return
+        if node.left:
+            self.func(node.left,path=path)
+        path.append(node.data)
+        if node.right:
+            self.func(node.right,path=path)
+            
+    def merge(self, root1, root2):
+        # code here
+        path1=[]
+        self.func(root1,path=path1)
+        path2=[]
+        self.func(root2,path=path2)
+        l1=len(path1)
+        l2=len(path2)
+        res = [0 for _ in range(l1+l2)]
+        rpos=0
+        p1 = 0
+        p2 = 0
+        while p1<l1 and p2<l2:
+            if path1[p1] <= path2[p2]:
+                res[rpos]=path1[p1]
+                p1+=1
+                rpos+=1
+            else:
+                res[rpos]=path2[p2]
+                p2+=1
+                rpos+=1
+        while p1<l1:
+            res[rpos]=path1[p1]
+            p1+=1
+            rpos+=1
+        
+        while p2<l2:
+            res[rpos]=path2[p2]
+            p2+=1
+            rpos+=1
+            
+        return res
