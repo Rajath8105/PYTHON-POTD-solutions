@@ -1,0 +1,16 @@
+class Solution:
+    def multiply_two_lists(self, first, second):
+        # Code here
+        mod=10 ** 9 + 7
+        n1=first.data
+        curr=first
+        while curr.next != None:
+            curr=curr.next
+            n1=(n1*10+curr.data)%mod
+        n2=second.data
+        curr=second
+        while curr.next != None:
+            curr=curr.next
+            n2=(n2*10+curr.data)%mod
+        ans=(n1*n2)%mod
+        return ans
