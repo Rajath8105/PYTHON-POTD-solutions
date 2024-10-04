@@ -1,0 +1,37 @@
+class Solution:
+    # Function to reverse a circular linked list
+    def reverse(self, head):
+        #code here
+        prv=head
+        cur=head.next
+        while 1:
+            tmp=cur.next
+            cur.next=prv
+            prv=cur
+            cur=tmp
+            if prv==head:
+                break
+        return head.next
+                
+                
+        
+    # Function to delete a node from the circular linked list
+    def deleteNode(self, head, key):
+        #code here
+        prv=head
+        cur=prv.next
+        while cur!=head:
+            prv=cur
+            cur=cur.next
+        while 1:
+            if cur.data==key:
+                prv.next=cur.next
+                if cur==head:
+                    head=head.next
+                del cur
+                break
+            prv=cur
+            cur=cur.next
+            if cur==head:
+                break
+        return head
