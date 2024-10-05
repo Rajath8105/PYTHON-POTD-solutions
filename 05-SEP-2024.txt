@@ -1,0 +1,10 @@
+class Solution:
+    def findSmallest(self, arr):
+        # code here
+        ans=1
+        for e in arr:
+            if e <= ans:
+                ans+=e
+            else:
+                break
+        return ans
