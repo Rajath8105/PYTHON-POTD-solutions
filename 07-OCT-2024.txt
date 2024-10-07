@@ -1,0 +1,15 @@
+def insert(head, data):
+    node=Node(data)
+    if head:
+        node.npx=head
+        head=node
+    else:
+        head=node
+    return head
+    
+def getList(head):
+    res=[]
+    while head:
+        res.append(head.data)
+        head=head.npx
+    return res
