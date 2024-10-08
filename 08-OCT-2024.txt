@@ -1,0 +1,16 @@
+from typing import List
+
+
+class Solution:
+    def pairsum(self, arr : List[int]) -> int:
+        # code here
+        max_val=-1
+        sec_max_val=-1
+        for elem in arr:
+            if elem > max_val:
+                sec_max_val=max_val
+                max_val=elem
+            if elem > sec_max_val and elem !=max_val:
+                sec_max_val=elem
+        return max_val + sec_max_val
+        
