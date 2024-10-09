@@ -1,0 +1,13 @@
+
+class Solution:
+    def constructLinkedMatrix(self, mat):
+        #your code goes here
+        return self.make_node(0,0,mat)
+    
+    def make_node(self,i,j,mat):
+        if i >= len(mat) or j >=len(mat[0]):
+            return None
+        node=Node(mat[i][j])
+        node.right=self.make_node(i,j+1,mat)
+        node.down=self.make_node(i+1,j,mat)
+        return node
