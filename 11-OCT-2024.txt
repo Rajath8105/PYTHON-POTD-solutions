@@ -1,0 +1,12 @@
+
+class Solution:
+    def rearrange(self, arr):
+        ans = [-1] * len(arr)
+        for val in arr:
+            if 0 <=val < len(arr):
+                ans[val] = val
+        return ans
+       
+
+#{ 
+ # Driver Code Starts.
