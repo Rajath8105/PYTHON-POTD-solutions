@@ -1,0 +1,23 @@
+#User function Template for python3
+from collections import defaultdict
+class Solution:
+    
+    #Complete this fuction
+    #Function to count the number of subarrays which adds to the given sum.
+    def subArraySum(self,arr, tar):
+        d=defaultdict(int)
+        val=0
+        ans=0
+        for ind, num in enumerate(arr):
+            val+=num
+            
+            if tar in d:
+                ans+=d[tar]
+            
+            if val-tar in d:
+                ans+=d[val-tar]
+            
+            d[val]+=1
+        
+        return ans
+        
