@@ -1,0 +1,27 @@
+class Solution:
+    def alternatingSplitList(self, head):
+        #Your code here
+        head1=None
+        head2=None
+        tail1=None
+        tail2=None
+        alter=True
+        while head:
+            new_node=Node(head.data)
+            if alter:
+                if head1==None:
+                    head1=new_node
+                    tail1=head1
+                else:
+                    tail1.next=new_node
+                    tail1=new_node
+            else:
+                if head2==None:
+                    head2=new_node
+                    tail2=head2
+                else:
+                    tail2.next=new_node
+                    tail2=new_node
+            alter=not alter
+            head=head.next
+        return [head1, head2]
