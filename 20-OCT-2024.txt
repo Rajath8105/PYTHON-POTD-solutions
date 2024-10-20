@@ -1,0 +1,48 @@
+#User function Template for python3
+import heapq
+'''
+class DLLNode:
+    def _init_(self,val) -> None:
+        self.data = val
+        self.prev = None
+        self.next = None
+'''
+class Solution:
+    def sortAKSortedDLL(self, head, k):
+        heap = []
+        temp = head
+        temp2 = head
+        count =0
+        while temp2:
+            count+=1
+            temp2 = temp2.next
+        for i in range(k):
+            heapq.heappush(heap,temp.data)
+            temp = temp.next
+        
+        ans = []
+        last = DLLNode(-1)
+        head2 = last
+        
+        for i in range(k,count):
+            heapq.heappush(heap,temp.data)
+            dummy = heapq.heappop(heap)
+            ans.append(dummy)
+            temp2 = DLLNode(dummy)
+            last.next = temp2
+            temp2.prev = last
+            last = last.next
+            temp = temp.next
+        
+        while heap:
+            dummy = heapq.heappop(heap)
+            temp2 = DLLNode(dummy)
+            ans.append(dummy)
+            last.next = temp2
+            temp2.prev = last
+            last = last.next
+        
+        head2 = head2.next
+        head2.prev = None
+        return head2
+            
