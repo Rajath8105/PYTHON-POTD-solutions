@@ -1,0 +1,17 @@
+class Solution:
+    def sameOccurrence(self, arr, x, y):
+        # code here
+        result=0
+        count_diff=0
+        diff_map={0:1}
+        for val in arr:
+            if val==x:
+                count_diff+=1
+            elif val==y:
+                count_diff-=1
+                
+            result+=diff_map.get(count_diff,0)
+            
+            diff_map[count_diff]=diff_map.get(count_diff,0)+1
+            
+        return result
