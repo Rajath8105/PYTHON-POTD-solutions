@@ -1,0 +1,35 @@
+#User function Template for python3
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class Solution:
+    def sumOfLastN_Nodes(self, head, n):
+        if not head:
+            return 0
+        
+        # Initialize two pointers
+        first = head
+        second = head
+        
+        # Move the first pointer n steps ahead
+        for _ in range(n):
+            first = first.next
+        
+        # Traverse the list with both pointers until the first pointer reaches the end
+        while first:
+            first = first.next
+            second = second.next
+        
+        # Sum the last n nodes starting from the second pointer
+        sum_last_n = 0
+        while second:
+            sum_last_n += second.data
+            second = second.next
+        
+        return sum_last_n
+
+
+
