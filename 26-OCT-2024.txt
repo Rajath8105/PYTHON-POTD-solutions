@@ -1,0 +1,22 @@
+"""  
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+  This is method only submission.
+  You only need to complete the method.
+"""
+class Solution:
+    def count(self, head, key):
+        current = head
+        count = 0
+        
+        # Traverse the linked list
+        while current is not None:
+            # Increment count if the current node's data matches the key
+            if current.data == key:
+                count += 1
+            # Move to the next node
+            current = current.next
+            
+        return count
