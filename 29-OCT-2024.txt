@@ -1,0 +1,57 @@
+#User function Template for python3
+
+def quickSort(head):
+    #return head after sorting
+    
+    
+    def quick(arr, start, end):
+        
+        if start < end:
+            
+            pi = partition(arr , start, end)
+            quick(arr, start, pi)
+            quick(arr, pi+1, end)
+            
+    
+    def partition(arr, start, end):
+        
+            
+        pivot_index= start
+        pivot_ele = arr[start]
+        
+        i = pivot_index+1
+        j = i
+        while j <= end:
+            
+            if arr[j].data < pivot_ele.data:
+                arr[j], arr[i] = arr[i], arr[j]
+                i +=1
+            j+=1
+        
+        arr[pivot_index], arr[i-1] = arr[i-1], arr[pivot_index]
+        return i-1
+    
+    
+    arr = []
+    
+    temp = head
+    while temp:
+        
+        arr.append(temp)
+        temp = temp.next
+    
+    quick(arr, 0, len(arr)-1)
+    
+    temp = Node(-1)
+    head = temp
+    
+    for i in arr:
+        temp.next = i
+        temp = temp.next
+        temp.next = None
+    
+    return head.next
+    
+    
+    
+        
