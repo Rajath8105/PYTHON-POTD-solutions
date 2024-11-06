@@ -1,0 +1,12 @@
+# Your task is to complete this function
+# function should return max sum level in the tree
+class Solution:
+    def treePathSum(self,root,prefix = 0):
+        # Code here
+        
+        if not root:
+            return 0
+        current_sum = 10* prefix + root.data
+        if root.left is None and root.right is None:
+            return current_sum 
+        return self.treePathSum(root.left,current_sum) + self.treePathSum(root.right,current_sum)
