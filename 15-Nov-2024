@@ -1,0 +1,11 @@
+#User function Template for python3
+class Solution:
+    def getSecondLargest(self, arr):
+        # Code Here
+        arr1=set(arr)
+        arr2=list(arr1)
+        arr2.sort()
+        if len(arr2)==1:
+            return -1
+
+        return arr2[-2]
