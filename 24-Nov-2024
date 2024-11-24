@@ -1,0 +1,17 @@
+#User function Template for python3
+
+class Solution:
+    ##Complete this function
+    #Function to find the sum of contiguous subarray with maximum sum.
+    def maxSubArraySum(self,arr):
+        ##Your code here
+        max_sum = float('-inf')  # To handle cases with all negative numbers
+        current_sum = 0
+
+        for num in arr:
+        # Update current_sum: Either start a new subarray or continue the existing one
+           current_sum = max(num, current_sum + num)
+        # Update max_sum if current_sum is greater
+           max_sum = max(max_sum, current_sum)
+
+        return max_sum
